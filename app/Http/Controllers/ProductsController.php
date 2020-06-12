@@ -48,12 +48,25 @@ class ProductsController extends Controller
             'year' => 'required',
             'details' => 'required|string|min:5|max:1000',
             'stock'=>'required|integer',
+            'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
+        
+        $imageName = time().'.'.$request->images->extension();  
+        $request->images->move(public_path('images'), $imageName);
+        
+        $product = new Product;
+        $product->title = $request->title;
+        $product->price = $request->price;
+        $product->categories = $request->categories;
+        $product->author = $request->author;
+        $product->publisher = $request->publisher;
+        $product->year = $request->year;
+        $product->details = $request->details;
+        $product->stock = $request->stock;
+        $product->images = $imageName;
 
-        // $images = $request->images;
-        // $images->move('images',$images->getClientOriginalName());
-
-        Product::create($request->all());
+        $product->save();
+        
         return redirect('/produk')->with('status', 'Data berhasil ditambahkan');
     }
 

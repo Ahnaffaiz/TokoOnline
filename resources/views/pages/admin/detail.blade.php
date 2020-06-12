@@ -5,9 +5,9 @@
     <div class="comtainer">
         <div class="card border-left-primary">
             <div class="card-body">
-                <h1 class="card-title">{{$product->title}}</h1>
-                <img src="..." class="card-img-top" alt="...">
-                <h4 class="text-success">Rp. {{$product->price}}</h4>
+            <h1 class="card-title my-3">{{$product->title}}</h1>
+            <img src="/images/{{$product->images}}" class="card-img-top">
+                <h4 class="text-success mt-3">Rp. {{$product->price}}</h4>
                 <table>
                     <tr>
                         <td>Kategori</td>
@@ -22,7 +22,7 @@
                     <tr>
                         <td>Penerbit</td>
                         <td>    :</td>
-                        <td>{{$product->publiser}}</td>
+                        <td>{{$product->publisher}}</td>
                     </tr>
                     <tr>
                         <td>Tahun</td>
@@ -35,7 +35,8 @@
                         <td>{{$product->stock}} buah</td>
                     </tr>
                 </table>
-                <p class="card-text mt-3">{{$product->details}}</p>
+                <p class="mt-4">Details :</p>
+                <p>{{$product->details}}</p>
                 <div class="mt-5">
                     <a href="" class="btn btn-primary">Edit</a>
                     <a href="" class="btn btn-danger ml-2">Hapus</a>
