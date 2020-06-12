@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('homepage.index');
 });
-Route::get('/admin', function () {
-    return view('pages.dashboard');
-});
-Route::get('/admin/produk', 'ProductController@index');
-
-
+Route::get('/admin', 'DashboardController@index');
+Route::get('/produk', 'ProductsController@index');
+Route::get('/produk/create', 'ProductsController@create');
+Route::get('/produk/{product}', 'ProductsController@show');
+Route::post('/produk','ProductsController@store');

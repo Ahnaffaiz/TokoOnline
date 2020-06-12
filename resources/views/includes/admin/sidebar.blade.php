@@ -14,19 +14,19 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{('/admin')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
     <!-- Nav Item - product -->
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{url('/produk')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Produk</span></a>
     </li>
     <!-- Nav Item - transaksi -->
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="/produk">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Transaksi</span></a>
     </li>

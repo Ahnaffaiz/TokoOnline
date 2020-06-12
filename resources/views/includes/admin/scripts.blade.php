@@ -14,3 +14,12 @@
     <!-- Page level custom scripts -->
   <script src="{{url('backend/js/demo/chart-area-demo.js')}}"></script>
   <script src="{{url('backend/js/demo/chart-pie-demo.js')}}"></script>
+  <script src="{{url('backend/vendor/moment/moment.min.js')}}"></script>
+  <script src="backend/vendor/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="{{url('backend/vendor/datepicker/custom.js')}}"></script>
+  <script>
+    $(document).ready(function(){
+        setYearPicker()
+        setYearRangePicker(".startyear", ".endyear")
+    })
+    </script>

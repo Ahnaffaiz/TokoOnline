@@ -29,8 +29,10 @@
       <div id="content">
 
        @include('includes.admin.navbar')
-
-        @yield('content')
+        <div class="container">
+          @yield('content')
+        </div>
+        
 
       </div>
       <!-- End of Main Content -->
