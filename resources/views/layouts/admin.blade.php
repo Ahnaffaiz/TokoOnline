@@ -70,6 +70,7 @@
   </div>
 
   @include('includes.admin.scripts')
+  @yield('script')
 
 </body>
 

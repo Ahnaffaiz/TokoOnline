@@ -38,11 +38,32 @@
                 <p class="mt-4">Details :</p>
                 <p>{{$product->details}}</p>
                 <div class="mt-5">
-                    <a href="" class="btn btn-primary">Edit</a>
-                    <a href="" class="btn btn-danger ml-2">Hapus</a>
+                    <a href="{{$product->id}}/edit" class="btn btn-primary">Edit</a>
+                    <form action="{{$product->id}}" method="POST" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger ml-2" type="submit" onclick="myFunction()" id="delete">Hapus</button>
+                    </form>
                     <a href="/produk" class="btn btn-outline-warning ml-2">Kembali</a>
                 </div>
             </div>
           </div>
     </div>
+
+    @section('script')
+        <script>
+            function myFunction() {
+            var txt;
+            var r = confirm("Hapus data produk ?");
+            if (r == true) {
+                txt = "You pressed OK!";
+            } else {
+                txt = "You pressed Cancel!";
+            }
+            document.getElementById("delete").innerHTML = txt;
+            }
+        </script>
+    @endsection
+
+
 @endsection

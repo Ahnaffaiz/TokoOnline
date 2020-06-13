@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <a href="/produk/create" class="btn btn-primary my-3"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Produk</a>
-        <table class="table table-stipped">
+        <table class="table table-stipped" id="table_product">
             
             @if (session('status'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -15,7 +15,7 @@
                 </div>
             @endif
 
-            <thead class="table-success">
+            <thead class="bg-primary text-white" >
                 <tr>
                     {{-- <td scope="col">Sampul</td> --}}
                     <th scope="col">No</th>
@@ -40,4 +40,12 @@
             </tbody>
         </table>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready( function () {
+        $('#table_product').DataTable();
+    } );
+    </script>
 @endsection

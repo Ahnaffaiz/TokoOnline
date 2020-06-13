@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -39,6 +40,7 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
+        
         $request->validate([
             'title' => 'required',
             'price' => 'required|integer',
@@ -91,6 +93,7 @@ class ProductsController extends Controller
     public function edit(Product $product)
     {
         //
+        return view('pages.admin.edit', compact('product'));
     }
 
     /**
@@ -103,6 +106,40 @@ class ProductsController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        //jika gambar diupdate
+        if($request->images!=null)
+        {
+            Storage::disk('public')->delete("images/" . $product->images);
+            $imageName = time().'.'.$request->images->extension();  
+            $request->images->move(public_path('images'), $imageName);
+            $imagesUpload = $imageName;
+        } else {
+            $imagesUpload = $product->images;
+        }
+
+        //jika kategori diupdate
+        if($request->categories==null){
+            $categoriesUpload = $product->categories;
+        } else {
+            $categoriesUpload = $request->categories;
+        }
+
+        Product::where('id', $product->id)
+        ->update([
+            'title'=>$request->title,
+            'price'=>$request->price,
+            'categories'=>$categoriesUpload,
+            'author'=>$request->author,
+            'publisher'=>$request->publisher,
+            'year'=>$request->year,
+            'details'=>$request->details,
+            'stock'=>$request->stock,
+            'images'=>$imagesUpload
+            ]);
+        
+            return redirect('/produk');
+
+        
     }
 
     /**
@@ -114,5 +151,8 @@ class ProductsController extends Controller
     public function destroy(Product $product)
     {
         //
+        Product::destroy($product->id);
+        Storage::delete('/public/images'.$product->images);
+        return redirect('produk');
     }
 }
