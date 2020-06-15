@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Dashboard;
+use App\Transaction;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,22 +15,9 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $transactions = Dashboard::all();
-        $pending = 0;
-        $sukses = 0;
-        $gagal = 0;
+        $transactions = Transaction::all();
+        return view('pages.admin.transaction', compact('transactions'));
 
-
-        foreach ($transactions as $transaction) {
-            if($transaction->status == 'pending'){
-                $pending+=1;
-            } elseif ($transaction->status == 'sukses') {
-                $sukses +=1;
-            } elseif ($transaction->status == 'gagal') {
-                $gagal +=1;
-            }
-        }
-        return view('pages.admin.dashboard', compact('pending','sukses', 'gagal'));
     }
 
     /**
@@ -57,21 +44,22 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Transaction $transaction)
     {
         //
+        return view('pages.admin.transactionedit', compact('transaction'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Transaction $transaction)
     {
         //
     }
@@ -80,21 +68,27 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Transaction $transaction)
     {
         //
+        Transaction::where('id', $transaction->id)
+        ->update([
+            'status'=>$request->status
+            ]);
+        
+            return redirect('/transaksi');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Transaction $transaction)
     {
         //
     }

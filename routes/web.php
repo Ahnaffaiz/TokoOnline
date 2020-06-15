@@ -17,11 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.homepage.index');
 // });
 Route::get('/', 'HomepageController@index');
-Route::get('/admin', 'DashboardController@admin')
+Route::get('/admin', 'DashboardController@index')
     // ->middleware(['auth','admin'])
     ->name('admin');
-    
-Route::get('/{product}', 'HomepageController@show');
+
+Route::patch('/transaksi/{transaction}','TransactionController@update');
+Route::get('/transaksi','TransactionController@index');
+Route::get('/transaksi/{transaction}', 'TransactionController@show');
+Route::patch('/transaksi/{transaction}','TransactionController@update');
+
+
 Route::get('/produk', 'ProductsController@index');
 Route::get('/produk/create', 'ProductsController@create');
 Route::get('/produk/{product}', 'ProductsController@show');
@@ -29,5 +34,7 @@ Route::post('/produk','ProductsController@store');
 Route::delete('/produk/{product}','ProductsController@destroy');
 Route::patch('/produk/{product}','ProductsController@update');
 Route::get('/produk/{product}/edit','ProductsController@edit');
+
+Route::get('/{product}', 'HomepageController@show');
 Auth::routes();
 

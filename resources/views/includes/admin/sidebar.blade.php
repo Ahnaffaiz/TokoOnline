@@ -26,7 +26,7 @@
     </li>
     <!-- Nav Item - transaksi -->
     <li class="nav-item @yield('active-transaction')">
-      <a class="nav-link" href="/produk">
+      <a class="nav-link" href="/transaksi">
         <i class="fas fa-dolly-flatbed    "></i>
         <span>Transaksi</span></a>
     </li>
