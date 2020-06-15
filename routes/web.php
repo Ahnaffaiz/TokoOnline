@@ -14,10 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage.index');
+    return view('welcome');
 });
-Route::get('/admin', 'DashboardController@index');
-Route::get('/produk', 'ProductsController@index');
-Route::get('/produk/create', 'ProductsController@create');
-Route::get('/produk/{product}', 'ProductsController@show');
-Route::post('/produk','ProductsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'AdminController@admin')
+    ->middleware('admin')
+    ->name('admin');
+// Route::get('/admin', 'DashboardController@index');
+// Route::get('/produk', 'ProductsController@index');
+// Route::get('/produk/create', 'ProductsController@create');
+// Route::get('/produk/{product}', 'ProductsController@show');
+// Route::post('/produk','ProductsController@store');
