@@ -104,7 +104,7 @@ border-radius: 16px;">
                     <div class="card-body">
                     <h4 class="card-title">{{$product->title}}</h4>
                         <p class="card-text text-harga">Rp. {{$product->price}}</p>
-                        <a href="#" class="btn btn-block button-blue ">Beli</a>
+                        <a href="/{{$product->id}}" class="btn btn-block button-blue ">Beli</a>
                         <a href="#" class="btn btn-block button-primary ">Whatsapp</a>
                     </div>
                 </div>
