@@ -1,0 +1,87 @@
+.navbar .nav-link {
+    color: #00BFA6;
+    font-weight: 200;
+}
+
+.navbar .nav-link:hover {
+    color: #0D9E8B;
+}
+
+.navbar .active {
+    font-weight: 800;
+}
+
+.navbar i {
+    color: #00BFA6;
+}
+
+.button-primary {
+    background-color: #00BFA6;
+    color: white;
+    border-radius: 10px;
+}
+
+.button-primary:hover {
+    background-color: #0D9E8B;
+    color: white;
+}
+
+.button-outline-primary {
+    border: 2px solid #00BFA6;
+    color: #00BFA6;
+    border-radius: 10px;
+}
+
+.button-outline-primary:hover {
+    background-color: #0D9E8B;
+    color: white;
+}
+
+.button-blue {
+    background-color: #193566;
+    border-radius: 10px;
+    color: white;
+}
+
+.button-blue:hover {
+    background-color: #0b285a;
+    color: white;
+}
+
+.display-4 {
+    font-family: 'Playfair-display';
+    font-weight: 600;
+}
+
+h4,
+h1 {
+    font-family: 'Playfair-display';
+    font-weight: 600;
+}
+
+.text-harga {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #28DE45;
+}
+
+.card {
+    width: 250px;
+    height: 493px;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 25px rgba(179, 171, 171, 0.25);
+    box-shadow: 10px 10px 25px rgba(179, 171, 171, 0.25);
+}
+
+footer {
+    background-color: #0b285a;
+    color: white;
+    min-height: 100px;
+    font-family: 'playfair-display';
+}
+
+
+/*# sourceMappingURL=main.css.map */
