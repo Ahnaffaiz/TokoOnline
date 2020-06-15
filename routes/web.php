@@ -21,6 +21,7 @@ Route::get('/admin', 'AdminController@admin')
     ->name('admin');
 
 Route::get('/', 'HomepageController@index');
+Route::get('/{product}', 'HomepageController@show');
 Route::get('/admin', 'DashboardController@index');
 Route::get('/produk', 'ProductsController@index');
 Route::get('/produk/create', 'ProductsController@create');
