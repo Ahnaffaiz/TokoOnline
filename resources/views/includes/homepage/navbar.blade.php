@@ -7,7 +7,7 @@
         </a>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Beranda</a>
+            <a class="nav-link active" href="{{url('/')}}">Beranda</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Kategori</a>

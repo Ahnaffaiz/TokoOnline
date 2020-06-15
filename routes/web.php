@@ -17,12 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.homepage.index');
 // });
 Route::get('/', 'HomepageController@index');
-Route::get('/admin', 'AdminController@admin')
-    ->middleware(['auth','admin'])
+Route::get('/admin', 'DashboardController@admin')
+    // ->middleware(['auth','admin'])
     ->name('admin');
-
-
-// Route::get('/admin', 'DashboardController@index');
+    
+Route::get('/{product}', 'HomepageController@show');
 Route::get('/produk', 'ProductsController@index');
 Route::get('/produk/create', 'ProductsController@create');
 Route::get('/produk/{product}', 'ProductsController@show');
