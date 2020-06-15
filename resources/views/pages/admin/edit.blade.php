@@ -131,7 +131,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
+                    <button type="submit" class="btn btn-primary">Ubah Data</button>
                 <a href="/produk/{{$product->id}}" class="btn btn-outline-warning mx-2">Batal</a>
                     
                 </form>
