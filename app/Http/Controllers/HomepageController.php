@@ -46,9 +46,9 @@ class HomepageController extends Controller
      * @param  \App\Homepage  $homepage
      * @return \Illuminate\Http\Response
      */
-    public function show(Homepage $homepage)
+    public function show(Homepage $product)
     {
-        //
+        return view('pages.frontend.detail', ['product' => $product]);
     }
 
     /**
