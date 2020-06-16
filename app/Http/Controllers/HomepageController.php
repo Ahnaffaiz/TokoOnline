@@ -85,4 +85,9 @@ class HomepageController extends Controller
     {
         //
     }
+
+    public function checkout(Homepage $product)
+    {
+        return view('pages.frontend.checkout', ['product' => $product]);
+    }
 }

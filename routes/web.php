@@ -36,5 +36,8 @@ Route::patch('/produk/{product}','ProductsController@update');
 Route::get('/produk/{product}/edit','ProductsController@edit');
 
 Route::get('/{product}', 'HomepageController@show');
+
+Route::get('/checkout/{product}','HomepageController@checkout');
+Route::patch('/checkout/{product}','TransactionController@store');
 Auth::routes();
 

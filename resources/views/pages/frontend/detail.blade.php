@@ -38,7 +38,7 @@
                 <p class="mt-4">Details :</p>
                 <p>{{$product->details}}</p>
                 <div class="mt-5">
-                    <a href="#" class="btn button-blue">Beli</a>
+                <a href="/checkout/{{$product->id}}" class="btn button-blue">Beli</a>
                     {{-- <a href="#" class="btn button-primary">Tambahkan ke keranjang</a> --}}
                 </div>
             </div>

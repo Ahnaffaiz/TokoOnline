@@ -39,6 +39,14 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         //
+
+        $transaction = new Transaction;
+        $transaction->address = $request->address;
+        $transaction->payment = $request->payment;
+        $transaction->status = 'pending';
+        $transaction->save();
+
+        return view('pages.frontend.success');
     }
 
     /**
